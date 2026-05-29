@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-deep"
-version = "0.1.0"
+version = "0.1.1"
 description = "Django Enhanced Expression Parser"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 license = {text = "GPL-3.0-or-later"}
 authors = [
   { name = "Octolo", email = "dev@octolo.tech" }
@@ -16,13 +16,14 @@ classifiers = [
   "Development Status :: 4 - Beta",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-  "Programming Language :: Python :: 3.7",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Framework :: Django",
+  "Framework :: Django :: 5.0",
 ]
 keywords = ["django", "parser", "expression", "deep"]
-dependencies = ["Django>=3.2"]
+dependencies = ["Django>=5.0,<6.0"]
 
 [tool.setuptools.dynamic]
 version = { attr = "django_deep.__version__" }
@@ -48,3 +49,8 @@ target-version = "py39"
 
 [tool.ruff.lint]
 select = ["E", "F"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+testpaths = ["tests"]
+pythonpath = ["src"]
